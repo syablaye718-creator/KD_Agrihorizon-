@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DKhAgrihorizon — Cultivons ensemble un avenir vert</title>
+  <meta name="description" content="DKhAgrihorizon : Installation et suivi des cultures maraîchères, aménagement de vergers et d'espaces verts, conseil et encadrement agricole au Sénégal." />
+  <style>
+    :root {
+      --green-dark: #144d23;
+      --green-main: #1f7a38;
+      --green-light: #e8f5ec;
+      --gold: #f4a81d;
+      --text-dark: #1a241d;
+      --text-muted: #526157;
+      --bg-light: #f8fbf9;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(20, 77, 35, 0.1);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text-dark);
+      background-color: var(--white);
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e6eee8;
+    }
+    .nav-container {
+      max-width: 1140px; margin: 0 auto; padding: 14px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--green-dark);
+      font-weight: 800; font-size: 1.35rem;
+    }
+    .brand-icon {
+      width: 40px; height: 40px; background: var(--green-light);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+    nav { display: flex; gap: 24px; align-items: center; }
+    nav a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 0.95rem; }
+    nav a:hover { color: var(--green-main); }
+    .nav-cta { background: var(--green-dark); color: var(--white) !important; padding: 10px 18px; border-radius: 50px; }
+    .menu-toggle {
+      display: none; background: var(--green-light); border: none; color: var(--green-dark);
+      font-size: 1.4rem; width: 42px; height: 42px; border-radius: 50%; cursor: pointer;
+    }
+
+    /* HERO */
+    .hero { background: linear-gradient(180deg, #f3faf5 0%, #ffffff 100%); padding: 48px 20px 60px; }
+    .hero-container {
+      max-width: 1140px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green-light); color: var(--green-dark);
+      padding: 8px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; margin-bottom: 18px;
+    }
+    .badge-dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; }
+    .hero h1 { font-size: 2.7rem; line-height: 1.15; margin-bottom: 14px; }
+    .hero h1 span { color: var(--green-main); border-bottom: 4px solid var(--gold); }
+    .hero-slogan { font-style: italic; font-weight: 700; color: var(--green-dark); font-size: 1.1rem; margin-bottom: 16px; }
+    .hero p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 28px; }
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 32px; }
+    .btn-primary {
+      background: var(--green-dark); color: var(--white); text-decoration: none;
+      padding: 15px 28px; border-radius: 50px; font-weight: 700; text-align: center; display: inline-block;
+    }
+    .btn-primary:hover { background: var(--green-main); }
+    .btn-secondary {
+      background: var(--white); color: var(--green-dark); border: 2px solid #d5e5da;
+      text-decoration: none; padding: 13px 26px; border-radius: 50px; font-weight: 700; text-align: center; display: inline-block;
+    }
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+      border-top: 1px solid #e4ede7; padding-top: 24px;
+    }
+    .stat-item h3 { font-size: 1.55rem; color: var(--green-main); font-weight: 800; }
+    .stat-item:last-child h3 { color: #d68b00; }
+    .stat-item p { font-size: 0.85rem; margin: 0; line-height: 1.35; }
+
+    /* PHOTO A DROITE */
+    .hero-media {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid #e6efe9;
+      text-align: center;
+    }
+    .hero-media img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      display: block;
+      object-fit: cover;
+    }
+    .hero-phone-box {
+      margin-top: 14px;
+      background: var(--green-light);
+      padding: 14px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      font-weight: 800; color: var(--green-dark); font-size: 1.15rem;
+    }
+
+    /* SECTIONS */
+    section { padding: 70px 20px; }
+    .container { max-width: 1140px; margin: 0 auto; }
+    .section-header { text-align: center; max-width: 680px; margin: 0 auto 46px; }
+    .section-tag { color: var(--green-main); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; display: block; margin-bottom: 8px; }
+    .section-header h2 { font-size: 2.1rem; margin-bottom: 12px; }
+    .section-header p { color: var(--text-muted); }
+
+    /* SERVICES */
+    #services { background: var(--bg-light); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 24px; }
+    .service-card {
+      background: var(--white); padding: 28px; border-radius: var(--radius);
+      box-shadow: var(--shadow); border: 1px solid #e8f0eb;
+    }
+    .service-icon {
+      width: 54px; height: 54px; background: var(--green-light); border-radius: 14px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.7rem; margin-bottom: 18px;
+    }
+    .service-card h3 { font-size: 1.2rem; color: var(--green-dark); margin-bottom: 10px; }
+    .service-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+    /* VALEURS */
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .value-card { background: var(--green-dark); color: var(--white); padding: 28px 22px; border-radius: var(--radius); text-align: center; }
+    .value-icon { font-size: 2.2rem; margin-bottom: 12px; display: block; }
+    .value-card h3 { font-size: 1.25rem; color: var(--gold); margin-bottom: 8px; }
+    .value-card p { font-size: 0.92rem; color: #e4f2e8; }
+
+    /* CONTACT */
+    #contact { background: var(--bg-light); }
+    .contact-wrapper {
+      display: grid; grid-template-columns: 1fr 1.1fr; gap: 36px;
+      background: var(--white); padding: 36px; border-radius: 24px;
+      box-shadow: var(--shadow); border: 1px solid #e6efe9;
+    }
+    .contact-info h3 { font-size: 1.6rem; color: var(--green-dark); margin-bottom: 12px; }
+    .contact-info p { color: var(--text-muted); margin-bottom: 24px; }
+    .contact-item {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 18px;
+      padding: 14px; background: var(--green-light); border-radius: 12px;
+    }
+    .contact-item span { font-size: 1.5rem; }
+    .contact-item strong { display: block; color: var(--green-dark); }
+    .contact-item a { color: var(--text-dark); text-decoration: none; font-weight: 700; }
+
+    form { display: flex; flex-direction: column; gap: 16px; }
+    .form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.92rem; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 13px 15px; border: 1.5px solid #d5e3d9;
+      border-radius: 12px; font-size: 1rem; font-family: inherit; outline: none;
+    }
+    .btn-whatsapp {
+      background: #25d366; color: var(--white); border: none; padding: 16px;
+      border-radius: 50px; font-size: 1.05rem; font-weight: 700; cursor: pointer;
+    }
+
+    footer { background: var(--green-dark); color: #d9ebe0; text-align: center; padding: 36px 20px; }
+    footer h3 { color: var(--white); margin-bottom: 8px; }
+    footer p { font-size: 0.9rem; margin-bottom: 6px; }
+
+    .float-wa {
+      position: fixed; bottom: 20px; right: 20px; background: #25d366; color: var(--white);
+      width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; text-decoration: none; box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); z-index: 999;
+    }
+
+    @media (max-width: 860px) {
+      .hero-container, .contact-wrapper { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero-buttons a { width: 100%; }
+      .menu-toggle { display: block; }
+      nav {
+        display: none; position: absolute; top: 70px; left: 0; right: 0;
+        background: var(--white); flex-direction: column; padding: 20px;
+        border-bottom: 1px solid #e6eee8; box-shadow: var(--shadow);
+      }
+      nav.active { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="#accueil" class="brand">
+        <span class="brand-icon">🌱</span>
+        <span>DKhAgrihorizon</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+      <nav id="navMenu">
+        <a href="#accueil">Accueil</a>
+        <a href="#services">Nos Services</a>
+        <a href="#valeurs">Nos Valeurs</a>
+        <a href="#contact" class="nav-cta">Contactez-nous</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="accueil">
+    <div class="hero-container">
+      <div>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          <span>Expertise & Accompagnement Agricole au Sénégal</span>
+        </div>
+        <h1>Cultivons ensemble <span>un avenir vert</span></h1>
+        <p class="hero-slogan">« Ensemble, cultivons aujourd'hui les récoltes de demain ! »</p>
+        <p>
+          De l'installation de cultures maraîchères à l'aménagement de vergers et d'espaces verts,
+          <strong>DKhAgrihorizon</strong> vous accompagne sur le terrain avec des solutions techniques modernes, durables et rentables.
+        </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-primary">Demander un devis gratuit</a>
+          <a href="#services" class="btn-secondary">Découvrir nos services</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h3>100%</h3>
+            <p>Accompagnement terrain personnalisé</p>
+          </div>
+          <div class="stat-item">
+            <h3>+40%</h3>
+            <p>Optimisation des rendements durables</p>
+          </div>
+          <div class="stat-item">
+            <h3>6 Pôles</h3>
+            <p>D'expertise & suivi technique agricole</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHOTO A DROITE -->
+      <div class="hero-media">
+        <img src="affiche.jpg" alt="DKhAgrihorizon - Cultivons ensemble un avenir vert" />
+        <div class="hero-phone-box">
+          <span>📞</span>
+          <a href="tel:+221767700631" style="color: inherit; text-decoration: none;">+221 76 770 06 31</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Ce que nous faisons</span>
+        <h2>Nos Services Agricoles</h2>
+        <p>Des prestations complètes adaptées aux producteurs, porteurs de projets, entreprises et collectivités.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🥬</div>
+          <h3>Installation et suivi des cultures maraîchères</h3>
+          <p>Mise en place de parcelles maraîchères (poivrons, tomates, légumes-feuilles...), choix des semences, irrigation et suivi jusqu'à la récolte.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🌳</div>
+          <h3>Aménagement d'un verger</h3>
+          <p>Conception, plantation d'arbres fruitiers adaptés au climat local, taille d'entretien et gestion optimisée de la production fruitière.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏡</div>
+          <h3>Aménagement d'espaces verts</h3>
+          <p>Création et entretien de jardins, pelouses, haies et espaces paysagers esthétiques et durables pour particuliers et institutions.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🤝</div>
+          <h3>Conseil et accompagnement des producteurs</h3>
+          <p>Diagnostic d'exploitation, appui stratégique, formation pratique sur le terrain et aide à la prise de décision agronomique.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛡️</div>
+          <h3>Fertilisation et protection phytosanitaire</h3>
+          <p>Plans de nutrition équilibrés des sols et gestion raisonnée des maladies et ravageurs pour préserver la santé des cultures.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3>Suivi technique et encadrement agricole</h3>
+          <p>Visites régulières, contrôle des itinéraires techniques et pilotage rigoureux pour maximiser la qualité et la rentabilité des récoltes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="valeurs">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Notre Engagement</span>
+        <h2>Les 4 Piliers de DKhAgrihorizon</h2>
+        <p>Une approche fondée sur l'excellence agronomique et le respect de l'environnement.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <span class="value-icon">🏅</span>
+          <h3>Qualité</h3>
+          <p>Des pratiques rigoureuses et des intrants sélectionnés pour garantir des récoltes saines et abondantes.</p>
+        </div>
+        <div class="value-card">
+          <span class="value-icon">🤝</span>
+          <h3>Partenariat</h3>
+          <p>Une relation de proximité et de confiance durable aux côtés de chaque producteur et client.</p>
+        </div>
+        <div class="value-card">
+          <span class="value-icon">♻️</span>
+          <h3>Durabilité</h3>
+          <p>Préservation de la fertilité des sols et gestion responsable des ressources naturelles.</p>
+        </div>
+        <div class="value-card">
+          <span class="value-icon">📈</span>
+          <h3>Réussite</h3>
+          <p>Un accompagnement orienté résultats pour assurer la rentabilité et la pérennité de vos projets.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Parlons de votre projet</span>
+        <h2>Contactez DKhAgrihorizon</h2>
+        <p>Besoin d'un diagnostic, d'un devis ou d'un accompagnement sur votre parcelle ? Écrivez-nous directement.</p>
+      </div>
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <h3>Démarrons votre projet agricole</h3>
+          <p>Notre équipe est disponible par téléphone et sur WhatsApp pour répondre à toutes vos questions.</p>
+          <div class="contact-item">
+            <span>📞</span>
+            <div>
+              <strong>Téléphone / Appel direct</strong>
+              <a href="tel:+221767700631">+221 76 770 06 31</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span>💬</span>
+            <div>
+              <strong>WhatsApp Direct</strong>
+              <a href="https://wa.me/221767700631" target="_blank" rel="noopener">Envoyer un message WhatsApp</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span>🌍</span>
+            <div>
+              <strong>Zone d'intervention</strong>
+              <span>Sénégal — Accompagnement terrain & conseil</span>
+            </div>
+          </div>
+        </div>
+
+        <form id="whatsappForm">
+          <div class="form-group">
+            <label for="name">Votre nom complet *</label>
+            <input type="text" id="name" placeholder="Ex : Mamadou Diallo" required />
+          </div>
+          <div class="form-group">
+            <label for="service">Service souhaité *</label>
+            <select id="service" required>
+              <option value="Installation et suivi des cultures maraîchères">Installation et suivi des cultures maraîchères</option>
+              <option value="Aménagement d'un verger">Aménagement d'un verger</option>
+              <option value="Aménagement d'espaces verts">Aménagement d'espaces verts</option>
+              <option value="Conseil et accompagnement des producteurs">Conseil et accompagnement des producteurs</option>
+              <option value="Fertilisation et protection phytosanitaire">Fertilisation et protection phytosanitaire</option>
+              <option value="Suivi technique et encadrement agricole">Suivi technique et encadrement agricole</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="location">Localisation du terrain / projet</label>
+            <input type="text" id="location" placeholder="Ex : Niayes, Thiès, Tambacounda..." />
+          </div>
+          <div class="form-group">
+            <label for="message">Détails de votre besoin *</label>
+            <textarea id="message" rows="3" placeholder="Décrivez brièvement votre projet ou la superficie..." required></textarea>
+          </div>
+          <button type="submit" class="btn-whatsapp">📲 Envoyer la demande sur WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <h3>🌱 DKhAgrihorizon</h3>
+    <p><em>« Ensemble, cultivons aujourd'hui les récoltes de demain ! »</em></p>
+    <p>Contact : +221 76 770 06 31 — Tous droits réservés © 2026 DKhAgrihorizon</p>
+  </footer>
+
+  <a href="https://wa.me/221767700631?text=Bonjour%20DKhAgrihorizon%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20vos%20services%20agricoles." class="float-wa" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    menuToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+    document.querySelectorAll('#navMenu a').forEach(link => link.addEventListener('click', () => navMenu.classList.remove('active')));
+
+    document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const service = document.getElementById('service').value;
+      const location = document.getElementById('location').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const text = `Bonjour DKhAgrihorizon,%0A%0A` +
+                   `*Nom :* ${encodeURIComponent(name)}%0A` +
+                   `*Service :* ${encodeURIComponent(service)}%0A` +
+                   (location ? `*Localisation :* ${encodeURIComponent(location)}%0A` : '') +
+                   `*Message :* ${encodeURIComponent(message)}`;
+      window.open(`https://wa.me/221767700631?text=${text}`, '_blank');
+    });
+  </script>
+</body>
+  </html>
+  
